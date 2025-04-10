@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    
+    <title>QR Code</title>
+    
+    <script>
+        function setCodeText(code) {
+            document.getElementById('code').innerText = code;
+        }
+    </script>
+  </head>
+  <body>
+    <div class = "result__container">
+        <div class = "shorturl">
+            <div id="qrcode"></div>
+        </div>
+        <div>
+            <text id="code" style="display:none;"></text>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+
+    <script>
+        const qrcode = new QRCode(document.getElementById('qrcode'), {
+            text: document.getElementById('code').innerText,
+            width: 128,
+            height: 128,
+            colorDark : '#000',
+            colorLight : '#fff',
+            correctLevel : QRCode.CorrectLevel.H
+    });
+    </script>
+
+  </body>
+</html>
